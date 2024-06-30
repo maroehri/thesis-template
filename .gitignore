@@ -1,0 +1,101 @@
+################################
+###########  FILES  ############
+################################
+
+################################
+########### FOLDERS ############
+################################
+build/
+html/
+_minted-coding-exercises/
+.DS_Store/
+
+################################
+############ LaTeX #############
+################################
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+
+# minted
+_minted*
+*.pyg
+
+# tcolorbox
+*.listing
+
+# TikZ & PGF
+*.dpth
+*.md5
+*.auxlock
+
+# xcolor
+*.xcp
+
+################################
+############ C/C++ #############
+################################
+# Prerequisites
+*.d
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.ko
+*.elf
+# Precompiled Headers
+*.gch
+*.pch
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+# Executables
+*.stackdump
+*.exe
+*.out
+# Linker output
+*.ilk
+*.map
+*.exp
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+################################
+########### VS CODE ############
+################################
+.vscode
+*.code-workspace
+.history

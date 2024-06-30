@@ -1,0 +1,52 @@
+\documentclass{thesis}
+
+%%% Einbinden der Metadatendatei
+%%% Darin befinden sich die Angaben für Autor und Titel
+\input{metadaten}
+
+\begin{document}
+
+%%% Titelseite einbinden
+\input{parts/titelseite}
+\include{parts/sperrvermerk-eigenstaendigkeitserklaerung}
+
+\frontmatter
+\include{parts/kurzzusammenfassung}
+
+\microtypesetup{activate=false}
+\tableofcontents
+\listoffigures
+\listoftables
+\include{parts/abkuerzungsverzeichnis}
+%\include{parts/list-of-symbols}
+\microtypesetup{activate=true}
+
+\mainmatter
+
+% Dieses Teil sollte vor Abgabe gelöscht werden
+\include{parts/latex-tipps}
+
+\include{parts/einleitung}
+\include{parts/grundlagen}
+\include{parts/anforderungen}
+\include{parts/konzept}
+\include{parts/implementierung}
+\include{parts/evaluation}
+\include{parts/zusammenfassung}
+
+%%% Falls es einen Anhang gibt:
+%\appendix
+%\include{parts/appendix-a}
+%\include{parts/appendix-b}
+
+%%% Falls es ein Glossar gibt:
+%\printglossaries
+
+%%% Literaturverzeichnis:
+\printbibliography[heading=bibintoc]
+
+%%% Falls es einen Index gibt
+%\addcontentsline{toc}{chapter}{\numberline{}Index}
+%\printindex
+
+\end{document}

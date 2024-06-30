@@ -1,0 +1,43 @@
+%%% Hier bitte die richtigen Werte einsetzen:
+\newcommand{\CompanyName}{}         % Standard leer
+\newcommand{\ConfidentialDate}{}    % Standard leer
+\newcommand{\SubmissionDate}{}      % Standard leer
+
+% Definition der Fallback-Werte
+\newcommand{\FallbackCompanyName}{\colorbox{hse-hellblau}{\textcolor{white}{Thesis Inc.}}}
+\newcommand{\FallbackConfidentialDate}{\colorbox{hse-hellblau}{\textcolor{white}{DD.MM.YYYY}}}
+\newcommand{\FallbackSubmissionDate}{\colorbox{hse-hellblau}{\textcolor{white}{DD.MM.YYYY}}}
+
+% Definition der zu verwendenden Werte
+\newcommand{\UseCompanyName}{\ifthenelse{\equal{\CompanyName}{}}{\FallbackCompanyName}{\CompanyName}}
+\newcommand{\UseConfidentialDate}{\ifthenelse{\equal{\ConfidentialDate}{}}{\FallbackConfidentialDate}{\ConfidentialDate}}
+\newcommand{\UseSubmissionDate}{\ifthenelse{\equal{\SubmissionDate}{}}{\FallbackSubmissionDate}{\SubmissionDate}}
+
+\thispagestyle{empty}
+
+\vspace*{\fill}
+
+\section*{Sperrvermerk}
+
+Die nachfolgende Arbeit enthält vertrauliche Daten der Firma \UseCompanyName.
+Veröffentlichungen oder Vervielfältigungen dieser Arbeit – auch nur auszugsweise
+– sind ohne ausdrückliche Genehmigung der \UseCompanyName nicht gestattet. Diese
+Arbeit ist nur den Prüfern sowie den Mitgliedern des Prüfungsausschusses
+zugänglich zu machen. Der Sperrvermerk gilt bis zum \UseConfidentialDate. Danach
+kann diese Arbeit frei veröffentlicht werden.
+
+\vspace*{3cm}
+
+\section*{Eigenständigkeitserklärung}
+
+Hiermit versichere ich, die vorliegende Arbeit selbstständig und unter
+ausschließlicher Verwendung der angegebenen Literatur und Hilfsmittel erstellt
+zu haben.
+
+\noindent Die Arbeit wurde bisher in gleicher oder ähnlicher Form keiner anderen
+Prüfungsbehörde vorgelegt und auch nicht veröffentlicht.
+
+\vspace*{2\baselineskip}
+\hbox to \textwidth{\hrulefill}
+\par
+\noindent Esslingen, den \UseSubmissionDate

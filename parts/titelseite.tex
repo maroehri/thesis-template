@@ -1,0 +1,45 @@
+%%% Schriftgröße SuperHuge definieren
+%%% Die erste Zahl (36) ist die Schriftgröße in Punkten,
+%%% die zweite Zahl (40) ist der Zeilenabstand.
+\newcommand{\SuperHuge}{\fontsize{36}{40}\selectfont}
+
+%%% Beginn der Titelseite
+\begin{titlepage}
+  \centering
+
+  %%% Logo oben links
+  \begin{flushleft}
+    \includegraphics[width=6cm]{figures/hs-esslingen-logo}
+  \end{flushleft}
+
+  \vspace*{1cm}
+
+  %%% Titel oben
+  {\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
+  \vfill
+
+  %%% Informationen in der Mitte
+  {\large zur Erlangung des akademischen Grades eines\\}
+  \vspace*{0.3cm}
+  {\LARGE Bachelor of Engineering (B.\,Eng.)\\}
+  \vspace*{0.8cm}
+  {\large von der Fakultät für Mobilität und Technik\\
+  der Hochschule Esslingen genehmigte\\}
+  \vspace*{0.2cm}
+  {\LARGE Bachelorarbeit\\}
+  \vspace*{0.1cm}
+  {\large von\\}
+  \vspace*{0.06cm}
+  {\LARGE \theauthor\\}   % Wert für \theauthor findet sich in metadaten.tex
+  \vfill
+
+  %%% Tabelle unten
+  {\large
+  \begin{tabular}{ll}
+  Tag der Einreichung: & \thedate\\ % Wert für \thedate findet sich in metadaten.tex
+  Erster Gutachter: & Prof.\ Dr.\ Martin Röhricht\\
+  Zweiter Gutachter: & Vorname Nachname\\
+  \end{tabular}}
+
+\end{titlepage}
+%%% Ende der Titelseite

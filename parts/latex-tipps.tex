@@ -1,0 +1,472 @@
+\section*{Textformatierungen in LaTeX}
+
+In \LaTeX\ gibt es verschiedene Befehle zur Textformatierung, die für
+unterschiedliche Zwecke verwendet werden können. Diese Befehle helfen dabei, den
+Text strukturiert und leserfreundlich zu gestalten. Hier sind einige wichtige
+Befehle und ihre Anwendungen:
+
+\subsection*{\texttt{\textbackslash textit\{\}} - Kursivschrift}
+
+Der Befehl \texttt{\textbackslash textit\{\}} wird verwendet, um Text kursiv
+darzustellen. Kursivschrift eignet sich besonders gut für Hervorhebungen
+innerhalb des Fließtextes, wie z.B. für fremdsprachige Ausdrücke, Titel von
+Büchern oder betonte Wörter.
+
+\begin{itemize}
+    \item Beispiel: \textit{Dies ist ein kursiver Text.}
+\end{itemize}
+
+\subsection*{\texttt{\textbackslash textsf\{\}} - Serifenlose Schrift}
+
+Der Befehl \texttt{\textbackslash textsf\{\}} wird verwendet, um Text in
+serifenloser Schrift darzustellen. Diese Schriftart eignet sich besonders gut
+für feststehende Begriffe aus der jeweiligen Domäne oder für Begriffe, die sich
+von normalem Fließtext abheben sollen.
+
+\begin{itemize}
+    \item Beispiel: \textsf{Dies ist ein Text in serifenloser Schrift.}
+\end{itemize}
+
+\subsection*{\texttt{\textbackslash textbf\{\}} - Fettschrift}
+
+Der Befehl \texttt{\textbackslash textbf\{\}} wird verwendet, um Text fett
+darzustellen. Fettschrift sollte sparsam verwendet werden und eignet sich
+besonders gut für starke Hervorhebungen, wie z.B. wichtige Begriffe oder
+Überschriften.
+
+\begin{itemize}
+    \item Beispiel: \textbf{Dies ist ein fetter Text.}
+\end{itemize}
+
+\subsection*{\texttt{\textbackslash texttt\{\}} - Monospace-Schrift}
+
+Der Befehl \texttt{\textbackslash texttt\{\}} wird verwendet, um Text in einer
+Monospace-Schrift (Schreibmaschinenschrift) darzustellen. Diese Schriftart
+eignet sich besonders gut für Code, Programmnamen, Dateinamen und andere
+technische Begriffe.
+
+\begin{itemize}
+    \item Beispiel: \texttt{Dies ist ein Text in Monospace-Schrift.}
+\end{itemize}
+
+
+
+\section*{Aufzählungen}
+
+Aufzählungen sind eine häufig genutzte Methode, um Listen von Elementen
+strukturiert darzustellen. In \LaTeX\ gibt es mehrere Möglichkeiten,
+Aufzählungen zu erstellen. Zwei der häufigsten Methoden sind nummerierte
+Aufzählungen mit \texttt{enumerate} und nicht nummerierte Aufzählungen mit
+\texttt{itemize}.
+
+\subsection*{Nummerierte Aufzählungen}
+
+Nummerierte Aufzählungen verwenden Zahlen oder Buchstaben, um die Reihenfolge
+der Elemente anzuzeigen. Dies ist besonders nützlich, wenn die Reihenfolge der
+Elemente wichtig ist oder wenn Sie auf bestimmte Punkte verweisen möchten.
+
+\begin{enumerate}
+  \item Erster Punkt der Aufzählung.
+  \item Zweiter Punkt der Aufzählung.
+  \begin{enumerate}
+      \item Unterpunkt 1 der zweiten Ebene.
+      \item Unterpunkt 2 der zweiten Ebene.
+      \begin{enumerate}
+          \item Unterpunkt 1 der dritten Ebene.
+          \item Unterpunkt 2 der dritten Ebene.
+      \end{enumerate}
+  \end{enumerate}
+  \item Dritter Punkt der Aufzählung.
+\end{enumerate}
+
+\subsection*{Nicht nummerierte Aufzählungen}
+
+Nicht nummerierte Aufzählungen verwenden Symbole wie Punkte oder Striche, um die
+Elemente der Liste zu kennzeichnen. Dies ist nützlich, wenn die Reihenfolge der
+Elemente keine Rolle spielt.
+
+\begin{itemize}
+  \item Erster Punkt der Aufzählung.
+  \item Zweiter Punkt der Aufzählung.
+  \begin{enumerate}
+      \item Unterpunkt 1 der zweiten Ebene.
+      \item Unterpunkt 2 der zweiten Ebene.
+      \begin{enumerate}
+          \item Unterpunkt 1 der dritten Ebene.
+          \item Unterpunkt 2 der dritten Ebene.
+      \end{enumerate}
+  \end{enumerate}
+  \item Dritter Punkt der Aufzählung.
+\end{itemize}
+
+
+\section*{Literaturangaben}
+
+In der Datei \texttt{thesis.bib} befinden sich die Literaturangaben, die im
+folgenden genutzt werden:
+
+In der heutigen Forschung sind viele verschiedene Quellenarten relevant. Ein
+grundlegendes Werk im Bereich der Textsatzsysteme ist
+\textcite{knuth1984texbook}. Auch die Relativitätstheorie von
+\textcite{einstein1905} spielt eine bedeutende Rolle in der Physik.
+
+Die Grundlagen moderner Textsatzsysteme wurden maßgeblich durch die Arbeiten von
+\textcite{lamport1986document} geprägt. Auch die Definition des HTTP-Protokolls
+ist von großer Bedeutung \cite{rfc2616}.
+
+In der Informatik sind Algorithmen ein wichtiger Bestandteil der Forschung.
+Hierzu zählen auch die grundlegenden Arbeiten von \textcite{knuth1997art}.
+Turingmaschinen, wie sie in der Dissertation von \textcite{hopcroft1971thesis}
+beschrieben werden, sind ein weiteres zentrales Thema.
+
+Technische Berichte sind oft die Basis für neue Entwicklungen. Ein Beispiel
+hierfür ist der Bericht von \textcite{lamport1994latex} über LaTeX.
+
+Die Arbeiten von \textcite{turing1936thesis} haben die Forschung im Bereich der
+theoretischen Informatik maßgeblich beeinflusst. Zudem bietet die Webseite des
+\textcite{latexproject} wertvolle Informationen für Anwender.
+
+Abschließend soll noch ein weiteres Beispiel für ein Buch genannt werden, das
+gesellschaftliche und bildungspolitische Aspekte beleuchtet:
+\textcite{golden2019book}.
+
+
+
+\section*{Nutzung von Farben}
+
+In \LaTeX\ können Farben verwendet werden, um Text, Tabellen und andere Elemente
+hervorzuheben und das Dokument ansprechender zu gestalten. Hierfür ist in
+unserer Vorlage bereits das \texttt{xcolor}-Paket eingebunden, das eine Vielzahl
+von Farbmodellen unterstützt, einschließlich RGB, CMYK und HTML-Farben.
+
+Folgende Farben sind bereits vordefiniert und können über den unten angegebenen
+Farbcode verwendet werden:
+
+\begin{table}[htb!]
+  \centering
+  \caption{Tabelle mit Farbbegriffen und entsprechenden Farben}
+  \begin{tblr}{
+    colspec = {X[c,m] X[c,m]},
+    stretch=1.15,
+    column{1} = {font=\ttfamily},
+    column{2} = {font=\sffamily},
+    row{1} = {font=\bfseries\sffamily},
+    cell{2}{2} = {hse-dunkelblau, fg=white},
+    cell{3}{2} = {hse-rot, fg=white},
+    cell{4}{2} = {hse-hellblau, fg=white},
+    cell{5}{2} = {hse-blau75, fg=white},
+    cell{6}{2} = {hse-blau50, fg=white},
+    cell{7}{2} = {hse-blau25, fg=hse-dunkelblau},
+    cell{8}{2} = {hse-blau15, fg=hse-dunkelblau},
+    cell{9}{2} = {hse-hellgrau, fg=hse-dunkelblau},
+    cell{10}{2} = {mittelgrau, fg=hse-dunkelblau},
+    cell{11}{2} = {dunkelgrau, fg=white},
+  }
+  \toprule
+  Farbcode       & Farbe \\ \midrule
+  hse-dunkelblau & HS Esslingen Dunkelblau \\
+  hse-rot        & HS Esslingen Rot \\
+  hse-hellblau   & HS Esslingen Hellblau \\
+  hse-blau75     & HS Esslingen Blau 75\% \\
+  hse-blau50     & HS Esslingen Blau 50\% \\
+  hse-blau25     & HS Esslingen Blau 25\% \\
+  hse-blau15     & HS Esslingen Blau 15\% \\
+  hse-hellgrau   & HS Esslingen Hellgrau \\
+  mittelgrau     & Mittelgrau \\
+  dunkelgrau     & Dunkelgrau \\
+  \bottomrule
+  \end{tblr}
+\end{table}
+
+
+\noindent Sie können so die Farben wie folgt verwenden: \texttt{\textbackslash
+textcolor\{Farbe\}\{Text\}} färbt den Text in der angegebenen Farbe:
+
+\begin{itemize}
+  \item \textcolor{hse-rot}{Dies ist ein Text in Rot.}
+\end{itemize}
+
+\noindent \texttt{\textbackslash colorbox\{Farbe\}\{Text\}} setzt den Hintergrund des
+Textes in der angegebenen Farbe.
+
+\begin{itemize}
+  \item \colorbox{hse-blau15}{Dies ist ein Text mit sehr hellblauem Hintergrund.}
+\end{itemize}
+
+
+
+\section*{Einbinden von Grafiken}
+
+Grafiken können wie folgt eingebunden werden, hier zu sehen am Beispiel der
+Abbildung~\ref{fig:example}:
+
+%%% Einfügen einer Abbildung mit spezifischen Platzierungsoptionen:
+% "h" steht für "here": versucht, die Abbildung an der aktuellen Position im
+% Text einzufügen
+% "t" steht für "top": versucht, die Abbildung am oberen Rand der Seite
+% einzufügen
+% "b" steht für "bottom": versucht, die Abbildung am unteren Rand der Seite
+% einzufügen
+% "!" steht für "override" und erzwingt eine strikte Platzierung, ignoriert
+% einige der internen LaTeX-Einschränkungen zur Platzierung von Abbildungen
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/hs-esslingen-logo}
+  \caption{Beispiel für die Einbindung einer PDF-Grafik mit Beschriftung.}
+  \label{fig:example}
+\end{figure}
+
+Hier ist ein Beispiel, wie zwei Bilder nebeneinander eingefügt werden können,
+mit einer gemeinsamen Beschriftung für beide Bilder (siehe
+Abbildung~\ref{fig:combined}) und separaten Unterüberschriften für jedes Bild
+(Abbildung~\ref{fig:example1} und Abbildung~\ref{fig:example2}).
+
+\begin{figure}[htb!]
+  \centering
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hs-esslingen-logo}
+    \subcaption{Erste Unterüberschrift}
+    \label{fig:example1}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/hs-esslingen-logo}
+    \subcaption{Zweite Unterüberschrift}
+    \label{fig:example2}
+  \end{minipage}
+  \caption{Gemeinsame Beschriftung für beide Bilder}
+  \label{fig:combined}
+\end{figure}
+
+
+
+
+
+\section*{Tabellen}
+
+Tabellen in \LaTeX\ waren und sind teilweise immer noch schwieriger zu
+gestalten, als in anderen Programmen. Es gibt mittlerweile ein Paket
+\texttt{tabularray}, welches die Handhabung sehr erleichtert und viele
+Konfigurationsmöglichkeiten bietet.
+
+\begin{table}[htb!]
+  \centering
+  \caption{Überprüfung von Aussagen zur Softwareentwicklung}
+  \label{tab:true-false-tabelle}
+\begin{tblr}{
+  colspec = {Q[c,m] X[l,m] Q[c,m] Q[c,m]},
+  row{odd}={bg=hellgrau},   % Schattierung der ungeraden Zeilen
+  row{1}={bg=mittelgrau, font=\bfseries\sffamily},  % Überschrift
+  stretch=1.5               % Vergrößerung des Zeilenabstands
+}
+\toprule
+Nr. & Aussage & Wahr & Falsch\\ \midrule
+(1) & Da in den frühen Phasen der Softwareentwicklung kein Code verfügbar ist, sind manuelle Überprüfungen nicht anwendbar.
+        & {\Large $\Box$} & {\Large $\boxtimes$} \\
+(2) & Code-Reviews sollten nur von Personen durchgeführt werden, die nicht Teil des Entwicklungsteams sind.
+        & {\Large $\Box$} & {\Large $\boxtimes$} \\
+(3) & Paarprogrammierung kann auch eine Form der Code-Überprüfung sein.
+        & {\Large $\boxtimes$} & {\Large $\Box$} \\
+(4) & Code-Reviews sollten immer von einer einzelnen Person durchgeführt werden, um Konsistenz und klare Verantwortlichkeiten zu gewährleisten.
+        & {\Large $\Box$} & {\Large $\boxtimes$} \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+\subsection*{Beispiel für zwei nebeneinander stehende Tabellen}
+
+Falls Sie zwei Tabellen nebeneinander platzieren wollen, können Sie wie bei den
+Abbildungen zwei \texttt{minipage}s anlegen.
+
+\begin{table}[htb!]
+  \centering
+  \begin{minipage}[t]{.45\textwidth}
+    \centering
+    \caption{Erste Überprüfungen}
+    \begin{tblr}{
+      colspec = {Q[c,m] X[l,m] Q[c,m] Q[c,m]},
+      row{odd}={bg=hellgrau},   % Schattierung der ungeraden Zeilen
+      row{1}={bg=mittelgrau, font=\bfseries\sffamily},  % Überschrift
+      stretch=1.5               % Vergrößerung des Zeilenabstands
+    }
+    \toprule
+    Nr. & Aussage & Wahr & Falsch\\ \midrule
+    (1) & Aussage 1 & {\Large $\Box$} & {\Large $\boxtimes$} \\
+    (2) & Aussage 2 & {\Large $\Box$} & {\Large $\boxtimes$} \\
+    \bottomrule
+    \end{tblr}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{.45\textwidth}
+    \centering
+    \caption{Zweite Überprüfungen}
+    \begin{tblr}{
+      colspec = {Q[c,m] X[l,m] Q[c,m] Q[c,m]},
+      row{odd}={bg=hellgrau},   % Schattierung der ungeraden Zeilen
+      row{1}={bg=mittelgrau, font=\bfseries\sffamily},  % Überschrift
+      stretch=1.5               % Vergrößerung des Zeilenabstands
+    }
+    \toprule
+    Nr. & Aussage & Wahr & Falsch\\ \midrule
+    (1) & Aussage 3 & {\Large $\Box$} & {\Large $\boxtimes$} \\
+    (2) & Aussage 4 & {\Large $\boxtimes$} & {\Large $\Box$} \\
+    \bottomrule
+    \end{tblr}
+  \end{minipage}
+\end{table}
+
+
+
+\section*{Verwendung von Mathematik in \LaTeX}
+
+\LaTeX{} ist ein leistungsfähiges Textsatzsystem, das sich besonders gut für das
+Schreiben von wissenschaftlichen Arbeiten eignet. Ein wesentliches Merkmal von
+\LaTeX{} ist seine Fähigkeit, komplexe mathematische Ausdrücke sauber und
+präzise zu setzen. In diesem Abschnitt wird die Verwendung von Mathematik in
+\LaTeX{} kurz erläutert.
+
+\subsection*{Inline-Mathematik}
+
+Mathematische Ausdrücke können innerhalb eines Textes eingefügt werden, indem
+man sie zwischen Dollarzeichen setzt. Zum Beispiel wird die Quadratformel wie
+folgt geschrieben: \( ax^2 + bx + c = 0 \).
+
+\subsection*{Abgesetzte Mathematik}
+
+Für größere oder wichtigere Ausdrücke verwendet man abgesetzte Mathematik. Diese
+Ausdrücke werden zentriert und auf einer eigenen Zeile dargestellt. Man
+verwendet dazu die \texttt{\textbackslash[ \dots \textbackslash]}-Umgebung:
+
+\[
+e^{i\pi} + 1 = 0
+\]
+
+oder die \texttt{equation}-Umgebung, die auch eine Gleichungsnummer hinzufügt:
+
+\begin{equation}
+e^{i\pi} + 1 = 0
+\end{equation}
+
+\subsection*{Mehrere Gleichungen mit \texttt{align}}
+
+Die \texttt{align}-Umgebung ist besonders nützlich, um mehrere Gleichungen
+auszurichten. Jede Gleichung wird durch ein \texttt{\&}-Zeichen ausgerichtet und
+durch ein \texttt{\textbackslash\textbackslash} beendet. Hier ist ein
+komplexeres Beispiel:
+
+\begin{align}
+a + b &= c \\
+d + e &= f \\
+x_1 + y_1 &= z_1 \\
+2x_2 + 3y_2 &= 5z_2
+\end{align}
+
+\section*{Mathematische Symbole und Operatoren}
+
+\LaTeX{} bietet eine breite Palette von mathematischen Symbolen und Operatoren.
+Einige häufig verwendete Symbole sind:
+
+\begin{itemize}
+    \item Summenzeichen: \(\sum_{i=1}^n i\)
+    \item Integralzeichen: \(\int_0^1 x^2 \, dx\)
+    \item Brüche: \(\frac{a}{b}\)
+    \item Wurzeln: \(\sqrt{x}\) und \(\sqrt[3]{x}\)
+\end{itemize}
+
+\subsection*{Griechische Buchstaben}
+
+Griechische Buchstaben werden häufig in mathematischen Ausdrücken verwendet.
+Hier sind einige Beispiele:
+
+\begin{itemize}
+    \item Kleinbuchstaben: \(\alpha, \beta, \gamma, \delta, \epsilon\)
+    \item Großbuchstaben: \(\Gamma, \Delta, \Theta, \Lambda, \Pi, \Sigma, \Phi,
+    \Psi, \Omega\)
+\end{itemize}
+
+\subsection*{Vektoren und Matrizen}
+
+Vektoren und Matrizen können ebenfalls in \LaTeX{} dargestellt werden:
+
+\begin{itemize}
+    \item Vektoren: \(\vec{v}\) oder \(\mathbf{v}\)
+    \item Matrizen: 
+    \begin{equation}
+    \mathbf{A} = \begin{pmatrix}
+    a & b \\
+    c & d
+    \end{pmatrix}
+    \end{equation}
+\end{itemize}
+
+
+
+\section*{Die mybox-Umgebung}
+
+Demonstration der Nutzung einer \texttt{mybox}-Umgebung:
+
+\begin{mybox}[Bildschirmausgabe]{console}
+  Kleinstes Element: 2
+\end{mybox}
+
+\begin{mybox}[Textdatei.txt]{file}
+  \highlight{5} 24 13 83 22 4 \highlight{3} 99 23 45 \highlight{4} 82 34 11 9 \highlight{6} 13 22 93 42 85 34
+\end{mybox}
+
+
+\section*{Source Code}
+
+Falls mit Quelltext und Syntax-Highlighting gearbeitet werden soll, empfehle ich
+die Verwendung des \texttt{minted}-Pakets. Dieses setzt allerdings folgendes
+voraus:
+
+\begin{itemize}
+  \item Python muss auf Ihrem System installiert sein.
+  \item Pygments muss ebenfalls installiert sein. Dies kann durch Ausführen von
+  \texttt{pip install pygments} erreicht werden.
+  \item Da \texttt{minted} externe Programme aufruft, muss LaTeX mit der Option
+  \texttt{-shell-escape} kompiliert werden, um diese Aufrufe zu erlauben. Das
+  wäre in unserem enthaltenen \texttt{Makefile} bereits der Fall.
+\end{itemize}
+
+\begin{minted}{c}
+  #include <stdio.h>
+  
+  int main(void) {
+      char string[] = "Fischers Fritze fischt frische Fische, frische Fische fischt Fischers Fritze";
+      char word[] = "Fische";
+  
+      // Die im Folgenden genutzte countWords()-Funktion
+      // müssen Sie erstellen
+      int count = countWords(string, word);
+  
+      printf("Das Wort \"%s\" kam %d-mal im String vor", word, count);
+  }
+\end{minted}
+
+
+
+\section*{ToDo-Notizen}
+
+Das \texttt{todonotes}-Paket bietet eine einfache Möglichkeit, Aufgaben und
+Notizen in \LaTeX\-Dokumenten zu verwalten. Es erlaubt Ihnen, ToDo-Notizen
+sowohl im Randbereich als auch direkt im Text einzufügen und sogar Platzhalter
+für fehlende Abbildungen zu setzen.
+
+Mit dem \texttt{\textbackslash todo}-Befehl können Sie Notizen im Randbereich
+Ihres Dokuments einfügen, zum Beispiel genau an diese\todo{Hier eine ToDo-Notiz
+im Randbereich.} Stelle. Dies ist besonders nützlich für kurze Erinnerungen oder
+Hinweise.
+
+Manchmal ist es praktischer, die Notizen direkt im Text anzuzeigen. Das
+ermöglicht der \texttt{\textbackslash todo[inline]\{\}}-Befehl.
+
+\todo[inline]{Dies ist eine inline ToDo-Notiz im Text.}
+
+Mit dem \texttt{\textbackslash missingfigure\{\}}-Befehl können Sie Platzhalter
+für fehlende Abbildungen setzen. Dies ist nützlich, um zu kennzeichnen, wo
+später noch Abbildungen eingefügt werden sollen.
+
+\missingfigure{Eine Skizze der Struktur eines Trebuchets einfügen.}
