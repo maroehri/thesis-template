@@ -20,17 +20,56 @@
 %%% Ermöglicht erweiterte Kontrolle und Anpassung von Titel und Titelseite
 \usepackage{titling}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ermöglicht die Verwendung von OpenType-Schriften
 \usepackage{fontspec}
 
 %%% Schriftarten auswählen und konfigurieren
-\setmainfont{XCharter} % Serifenschrift
-\setsansfont{Fira Sans} % Serifenlose Schrift
-%\setsansfont{Lato}     % Serifenlose Schrift Alternative: Lato
-\setmonofont{DejaVu Sans Mono}[Scale=0.9] % Monospace-Schrift
-%\setmonofont{inconsolata}    % Monospace-Schrift Alternative: Inconsolata
-%\setmonofont{JetBrains Mono} % Monospace-Schrift Alternative: JetBrains Mono
+% Hauptschriftart mit Fallback-Optionen
+\IfFontExistsTF{XCharter}{
+  \setmainfont{XCharter}                        % part of TEX Live
+}{
+  \IfFontExistsTF{QTPalatine}{
+    \setmainfont{QTPalatine}                    % part of TEX Live
+  }{
+    \IfFontExistsTF{Noto Serif}{
+      \setmainfont{Noto Serif}                  % part of TEX Live
+    }{
+      \setmainfont{TeX Gyre Pagella}            % part of TEX Live
+    }
+  }
+}
+
+% Serifenlose Schrift mit Fallback-Optionen
+\IfFontExistsTF{Fira Sans}{
+  \setsansfont{Fira Sans}                       % Not part of TEX Live
+}{
+  \IfFontExistsTF{Lato}{
+    \setsansfont{Lato}                          % Not part of TEX Live
+  }{
+    \IfFontExistsTF{Noto Sans}{
+      \setsansfont{Noto Sans}[Scale=0.95]       % part of TEX Live
+    }{
+      \setsansfont{TeX Gyre Heros}[Scale=0.9]   % part of TEX Live
+    }
+  }
+}
+
+% Monospace-Schrift mit Fallback-Optionen
+\IfFontExistsTF{DejaVu Sans Mono}{
+  \setmonofont{DejaVu Sans Mono}[Scale=0.9]     % Not part of TEX Live
+}{
+  \IfFontExistsTF{JetBrains Mono}{
+    \setmonofont{JetBrains Mono}                % Not part of TEX Live
+  }{
+    \IfFontExistsTF{Inconsolata}{
+      \setmonofont{Inconsolata}                 % Not part of TEX Live
+    }{
+      \setmonofont{AnonymousPro}                % part of TEX Live
+    }
+  }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%% Statt der standardmäßigen Umschaltung bei KOMAscript auf serifenlose

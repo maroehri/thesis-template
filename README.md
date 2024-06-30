@@ -22,7 +22,7 @@ diese optional.
 ## Erzeugung der PDF-Datei
 
 Um ein PDF aus den vorliegenden Quellen zu erzeugen, können Sie die
-entsprechenden Befehler manuell nacheinander ausführen oder das mitgelieferte
+entsprechenden Befehle manuell nacheinander ausführen oder das mitgelieferte
 `Makefile` verwenden. Für die Nutzung des `Makefile`s benötigen Sie das freie
 Programm `Make`.
 
@@ -41,11 +41,30 @@ lualatex -shell-escape thesis.tex
 
 ### Automatische Übersetzung mittels Make
 
-Falls Sie das `Makefile` nutzen möchten, reicht ein Aufruf von
+Falls Sie das `Makefile` nutzen möchten, reicht in der Kommandozeile ein Aufruf
+von
 
 ```bash
 make
 ```
+
+## Schriftarten
+
+Die Vorlage nutzt verschiedene Schriftarten, die in den meisten Systemen nicht
+standardmäßig installiert sind. Hierbei handelt es sich u.a. um:
+
+- Fira Sans (serifenlose Schrift)
+  - Lizenzhinweis: "*These fonts are licensed under the Open Font License. You
+    can use them in your products & projects – print or digital, commercial or
+    otherwise.*"
+  - [Download](https://fonts.google.com/specimen/Fira+Sans)
+- DejaVu Fonts (Festbreitenschrift)
+  - [Lizenz](https://github.com/dejavu-fonts/dejavu-fonts/blob/master/LICENSE)
+  - [Download](https://github.com/dejavu-fonts/dejavu-fonts/releases)
+
+Ich empfehle, diese Schriftarten auf Ihrem System zu installieren, um ein
+optimales Ergebnis zu erzielen. Andernfalls werden Rückfalloptionen mit
+Schriften genutzt, die standardmäßig installiert sein sollten.
 
 ## Syntax-Highlighting mittels des minted-Pakets
 
