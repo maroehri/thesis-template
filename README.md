@@ -1,3 +1,3 @@
-# C Coding Exercises
+# Nutzung des Templates
 
-This project aims to provide a collection of C programming exercises along with solutions, which can be used to develop a better understanding of programming in C through continuous practice.
+Darum muss ich mich noch kümmern :-)
