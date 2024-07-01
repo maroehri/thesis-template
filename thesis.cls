@@ -249,6 +249,11 @@
 \def\labelenumi{(\theenumi)}     \def\theenumi{\arabic{enumi}}
 
 
+%%% TikZ-Paket für fortgeschrittene Zeichenfunktionen und präzise Positionierung
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
 %%% Einbinden von Grafiken
 \usepackage{graphicx}
   % Pfade angeben, an denen sich die Abbildungen finden lassen

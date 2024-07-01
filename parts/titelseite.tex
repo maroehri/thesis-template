@@ -5,14 +5,34 @@
 
 %%% Beginn der Titelseite
 \begin{titlepage}
-  \centering
+
+  %%% Hintergrund oben links
+
+  % Variante 1
+  % \begin{tikzpicture}[remember picture, overlay]
+  %   \node[anchor=north west, rotate=-10, xshift=-1.5cm, yshift=4.5cm] at (current page.north west) {
+  %     \includegraphics[width=10cm]{figures/background-01}
+  %   };
+  % \end{tikzpicture}
+
+  % Variante 2
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west, rotate=-20, xshift=-1.5cm, yshift=4.5cm] at (current page.north west) {
+      \includegraphics[width=10cm]{figures/background-02}
+    };
+  \end{tikzpicture}
+  
 
   %%% Logo oben rechts
-  \begin{flushright}
-    \includegraphics[width=6cm]{figures/hs-esslingen-logo}
-  \end{flushright}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north east, xshift=-12mm, yshift=-6mm] at (current page.north east) {
+      \includegraphics[width=6cm]{figures/hs-esslingen-logo}
+    };
+  \end{tikzpicture}
 
-  \vspace*{1cm}
+  \centering
+
+  \vspace*{3cm}
 
   %%% Titel oben
   {\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
