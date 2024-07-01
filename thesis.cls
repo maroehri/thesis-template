@@ -26,31 +26,31 @@
 
 %%% Schriftarten auswählen und konfigurieren
 % Hauptschriftart mit Fallback-Optionen
-\IfFontExistsTF{XCharter}{
-  \setmainfont{XCharter}                        % part of TEX Live
+\IfFontExistsTF{Droid Serif}{
+  \setmainfont{Droid Serif}               % part of TEX Live
 }{
-  \IfFontExistsTF{QTPalatine}{
-    \setmainfont{QTPalatine}                    % part of TEX Live
+  \IfFontExistsTF{XCharter}{
+    \setmainfont{XCharter}                % part of TEX Live
   }{
-    \IfFontExistsTF{Noto Serif}{
-      \setmainfont{Noto Serif}                  % part of TEX Live
+    \IfFontExistsTF{QTPalatine}{
+      \setmainfont{QTPalatine}            % part of TEX Live
     }{
-      \setmainfont{TeX Gyre Pagella}            % part of TEX Live
+      \setmainfont{Noto Serif}            % part of TEX Live
     }
   }
 }
 
 % Serifenlose Schrift mit Fallback-Optionen
-\IfFontExistsTF{Fira Sans}{
-  \setsansfont{Fira Sans}                       % Not part of TEX Live
+\IfFontExistsTF{Droid Sans}{
+  \setsansfont{Droid Sans}                % part of TEX Live
 }{
-  \IfFontExistsTF{Lato}{
-    \setsansfont{Lato}                          % Not part of TEX Live
+  \IfFontExistsTF{Fira Sans}{
+    \setsansfont{Fira Sans}               % Not part of TEX Live
   }{
-    \IfFontExistsTF{Noto Sans}{
-      \setsansfont{Noto Sans}[Scale=0.95]       % part of TEX Live
+    \IfFontExistsTF{Lato}{
+      \setsansfont{Lato}                  % Not part of TEX Live
     }{
-      \setsansfont{TeX Gyre Heros}[Scale=0.9]   % part of TEX Live
+      \setsansfont{Noto Sans}[Scale=0.9]  % part of TEX Live
     }
   }
 }
@@ -275,7 +275,14 @@
 
 
 %%% Möglichkeiten für ToDo-Notizen
-\usepackage[german]{todonotes}
+\usepackage[
+    ngerman,
+    textcolor=weiss,
+    linecolor=hse-rot,
+    bordercolor=hse-rot,
+    backgroundcolor=hse-rot,
+    textsize=small,
+]{todonotes}
 %%% z.B.:
 %%% \todo{Make a cake \ldots}
 %%% \todo[inline]{A todonote placed in the text}
