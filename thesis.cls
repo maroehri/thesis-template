@@ -39,6 +39,7 @@
         \setmainfont{QTPalatine}          % part of TEX Live
       }{
         \setmainfont{Noto Serif}          % part of TEX Live
+      }
     }
   }
 }
