@@ -64,7 +64,7 @@
   \setmonofont{DejaVu Sans Mono}[Scale=0.9]     % Not part of TEX Live
 }{
   \IfFontExistsTF{JetBrains Mono}{
-    \setmonofont{JetBrains Mono}                % Not part of TEX Live
+    \setmonofont{JetBrains Mono}[Scale=0.9]     % Not part of TEX Live
   }{
     \IfFontExistsTF{Inconsolata}{
       \setmonofont{Inconsolata}                 % Not part of TEX Live
