@@ -1,0 +1,19 @@
+\documentclass[tikz]{standalone}
+\usepackage{xcolor}
+
+\definecolor{hse-hellblau}{cmyk}{.75,.1,.06,0}
+\definecolor{hse-blau75}{HTML}{8abde2}
+\definecolor{hse-blau50}{HTML}{b4d3ed}
+\definecolor{hse-blau25}{HTML}{dbe9f7}
+\definecolor{hse-blau15}{HTML}{eaf2fa}
+
+\begin{document}
+  \begin{tikzpicture}[opacity=.35]
+    \clip (1,-4) rectangle (11,0.5);
+    \foreach \x in {0,0.05,...,1.5}{
+      \draw[color=hse-blau75] (0,\x) .. controls (4-\x,-3-2*\x) and (11-2*\x,3-2*\x) .. (12,-4+2*\x);
+      \draw[color=hse-blau50] (0,\x-0.75) .. controls (4-\x,\x-1.5) and (11-2*\x,-3-2*\x) .. (12,-2.5+2*\x);
+      \draw[color=hse-blau25] (0,\x-2) .. controls (4-\x,\x-1.5) and (11-3*\x,-1-3*\x) .. (12,-3.5+2.5*\x);
+    }
+  \end{tikzpicture}
+\end{document}
