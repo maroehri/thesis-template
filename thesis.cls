@@ -32,10 +32,13 @@
   \IfFontExistsTF{XCharter}{
     \setmainfont{XCharter}                % part of TEX Live
   }{
-    \IfFontExistsTF{QTPalatine}{
-      \setmainfont{QTPalatine}            % part of TEX Live
+    \IfFontExistsTF{EB Garamond}{
+      \setmainfont{EB Garamond}           % part of TEX Live
     }{
-      \setmainfont{Noto Serif}            % part of TEX Live
+      \IfFontExistsTF{QTPalatine}{
+        \setmainfont{QTPalatine}          % part of TEX Live
+      }{
+        \setmainfont{Noto Serif}          % part of TEX Live
     }
   }
 }
