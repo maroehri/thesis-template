@@ -26,11 +26,11 @@
 
 %%% Schriftarten auswählen und konfigurieren
 % Hauptschriftart mit Fallback-Optionen
-\IfFontExistsTF{Droid Serif}{
-  \setmainfont{Droid Serif}               % part of TEX Live
+\IfFontExistsTF{XCharter}{
+  \setmainfont{XCharter}               % part of TEX Live
 }{
-  \IfFontExistsTF{XCharter}{
-    \setmainfont{XCharter}                % part of TEX Live
+  \IfFontExistsTF{Droid Serif}{
+    \setmainfont{Droid Serif}                % part of TEX Live
   }{
     \IfFontExistsTF{EB Garamond}{
       \setmainfont{EB Garamond}           % part of TEX Live
@@ -45,11 +45,11 @@
 }
 
 % Serifenlose Schrift mit Fallback-Optionen
-\IfFontExistsTF{Droid Sans}{
-  \setsansfont{Droid Sans}                % part of TEX Live
+\IfFontExistsTF{Fira Sans}{
+  \setsansfont{Fira Sans}                 % Not part of TEX Live
 }{
-  \IfFontExistsTF{Fira Sans}{
-    \setsansfont{Fira Sans}               % Not part of TEX Live
+  \IfFontExistsTF{Droid Sans}{
+    \setsansfont{Droid Sans}              % part of TEX Live
   }{
     \IfFontExistsTF{Lato}{
       \setsansfont{Lato}                  % Not part of TEX Live

@@ -22,10 +22,17 @@
   %   };
   % \end{tikzpicture}
 
-  % Variante 3
+  % % Variante 3
+  % \begin{tikzpicture}[remember picture, overlay]
+  %   \node[anchor=north west] at (current page.north west) {
+  %     \includegraphics[width=12cm]{figures/background-09}
+  %   };
+  % \end{tikzpicture}
+
+  % Variante 4
   \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north west] at (current page.north west) {
-      \includegraphics[width=12cm]{figures/background-09}
+    \node[anchor=north west, yshift=-2cm] at (current page.north west) {
+      \includegraphics[width=\pagewidth]{figures/background-12}
     };
   \end{tikzpicture}
   
@@ -39,42 +46,42 @@
 
   \centering
 
-  \vspace*{3cm}
+  \vspace*{5cm} % Für die Varianten 1-3 des Hintergrunds reichen hier 3cm
 
-  %%% Titel oben (Variante 1)
-  %{\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
+  %%% Titel oben (Variante 1, 3 und 4)
+  {\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
 
   %%% Titel oben (Variante 2, dunkelblau hinterlegter Kasten und grauer Rand)
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \sffamily
+  % \sffamily
 
-  \begin{tikzpicture}[remember picture, overlay]
-    % Text-Node mit automatischem Umbruch
-    \node[
-        text=white,
-        align=right,
-        text width=14cm,
-        font=\SuperHuge\sffamily\selectfont,
-        anchor=north east,
-        inner sep=1cm,
-        outer sep=0pt
-    ] (title) at ([xshift=-0.7cm,yshift=-0.25\paperheight]current page.north east) 
-    {\thetitle\par};
+  % \begin{tikzpicture}[remember picture, overlay]
+  %   % Text-Node mit automatischem Umbruch
+  %   \node[
+  %       text=white,
+  %       align=right,
+  %       text width=14cm,
+  %       font=\SuperHuge\sffamily\selectfont,
+  %       anchor=north east,
+  %       inner sep=1cm,
+  %       outer sep=0pt
+  %   ] (title) at ([xshift=-0.7cm,yshift=-0.25\paperheight]current page.north east) 
+  %   {\thetitle\par};
 
-    % Dunkelblauer Kasten, der sich an den Text anpasst und am rechten Rand beginnt
-    \begin{scope}[on background layer]
-        \fill[hse-dunkelblau] 
-            ([yshift=-0.25\paperheight]current page.north east) rectangle 
-            ([xshift=-14.7cm]current page.north east |- title.south);
-    \end{scope}
+  %   % Dunkelblauer Kasten, der sich an den Text anpasst und am rechten Rand beginnt
+  %   \begin{scope}[on background layer]
+  %       \fill[hse-dunkelblau] 
+  %           ([yshift=-0.25\paperheight]current page.north east) rectangle 
+  %           ([xshift=-14.7cm]current page.north east |- title.south);
+  %   \end{scope}
     
-    % Graue Linie am Rand (unverändert)
-    \draw[hse-hellgrau,line width=5mm] 
-        ([xshift=2mm,yshift=-1mm]current page.south west) rectangle 
-        ([xshift=-2mm,yshift=1mm]current page.north east);
-  \end{tikzpicture}
+  %   % Graue Linie am Rand (unverändert)
+  %   \draw[hse-hellgrau,line width=5mm] 
+  %       ([xshift=2mm,yshift=-1mm]current page.south west) rectangle 
+  %       ([xshift=-2mm,yshift=1mm]current page.north east);
+  % \end{tikzpicture}
 
-  \vspace*{5cm}
+  % \vspace*{5cm}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \vfill
