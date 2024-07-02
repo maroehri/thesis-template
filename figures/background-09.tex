@@ -1,0 +1,55 @@
+% Inspired by https://tex.stackexchange.com/questions/475597/how-to-create-a-cover-page-like-this
+
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+
+\usepackage{xcolor}
+\definecolor{hse-hellblau}{cmyk}{.75,.1,.06,0}
+\definecolor{hse-blau75}{HTML}{8abde2}
+\definecolor{hse-blau50}{HTML}{b4d3ed}
+\definecolor{hse-blau25}{HTML}{dbe9f7}
+\definecolor{hse-blau15}{HTML}{eaf2fa}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[overlay,remember picture]
+    \begin{scope}
+        % Äußerer Kreis "big arc"
+        \draw[ultra thick,hse-hellblau,name path=big arc] 
+            ([xshift=2mm]current page.north) arc(30:-105:11)
+            coordinate[pos=0.225] (x0);
+        
+        \begin{scope}
+            % Begrenzung des Zeichenbereichs
+            \clip ([xshift=2mm]current page.north) arc(30:-105:11) -- (current page.north west);
+            
+            % Füllen der konzentrischen Kreise
+            \fill[hse-blau15] ([xshift=-4.55cm]x0) circle (4.55);
+            \fill[hse-blau25] ([xshift=-3.4cm]x0) circle (3.4);
+            \fill[hse-blau50] ([xshift=-2.25cm]x0) circle (2.25);
+            
+            % Zeichnen der Bögen
+            \draw[ultra thick,hse-blau75] (x0) arc(-90:270:6.5);
+            \draw[ultra thick,hse-hellblau] (x0) arc(90:210:8.75);
+            \draw[ultra thick,hse-blau75,name path=arc1] (x0) arc(90:270:4.675);
+            \draw[ultra thick,hse-blau75] (x0) arc(90:270:2.875);
+            
+            % Finden des Schnittpunkts zwischen big arc und arc1
+            \path[name intersections={of=big arc and arc1,by=x1}];
+            
+            % Zeichnen weiterer Bögen vom Schnittpunkt aus
+            \draw[ultra thick,hse-hellblau,name path=arc2] (x1) arc(45:200:4.75);
+            \draw[ultra thick,hse-blau75] (x1) arc(45:200:8.75);
+            
+            % Finden des Schnittpunkts zwischen big arc und arc2
+            \path[name intersections={of=big arc and arc2,by={aux,x2}}];
+            
+            % Zeichnen des letzten Bogens
+            \draw[ultra thick,hse-blau75] (x2) arc(0:130:2.25);
+        \end{scope}
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}

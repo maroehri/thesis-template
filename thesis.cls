@@ -256,6 +256,7 @@
 %%% TikZ-Paket für fortgeschrittene Zeichenfunktionen und präzise Positionierung
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usetikzlibrary{backgrounds}  % Wird bei Titelseite ggf. gebraucht
 
 
 %%% Einbinden von Grafiken

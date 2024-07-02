@@ -8,12 +8,12 @@
 
   %%% Hintergrund oben links
 
-  % Variante 1
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=north west] at (current page.north west) {
-      \includegraphics[width=10cm]{figures/background-08}
-    };
-  \end{tikzpicture}
+  % % Variante 1
+  % \begin{tikzpicture}[remember picture, overlay]
+  %   \node[anchor=north west] at (current page.north west) {
+  %     \includegraphics[width=10cm]{figures/background-08}
+  %   };
+  % \end{tikzpicture}
 
   % Variante 2
   % \begin{tikzpicture}[remember picture, overlay]
@@ -21,6 +21,13 @@
   %     \includegraphics[width=10cm]{figures/background-02}
   %   };
   % \end{tikzpicture}
+
+  % Variante 3
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north west] at (current page.north west) {
+      \includegraphics[width=12cm]{figures/background-09}
+    };
+  \end{tikzpicture}
   
 
   %%% Logo oben rechts
@@ -34,8 +41,42 @@
 
   \vspace*{3cm}
 
-  %%% Titel oben
-  {\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
+  %%% Titel oben (Variante 1)
+  %{\SuperHuge \thetitle\par}  % Wert für \thetitle findet sich in metadaten.tex
+
+  %%% Titel oben (Variante 2, dunkelblau hinterlegter Kasten und grauer Rand)
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \sffamily
+
+  \begin{tikzpicture}[remember picture, overlay]
+    % Text-Node mit automatischem Umbruch
+    \node[
+        text=white,
+        align=right,
+        text width=14cm,
+        font=\SuperHuge\sffamily\selectfont,
+        anchor=north east,
+        inner sep=1cm,
+        outer sep=0pt
+    ] (title) at ([xshift=-0.7cm,yshift=-0.25\paperheight]current page.north east) 
+    {\thetitle\par};
+
+    % Dunkelblauer Kasten, der sich an den Text anpasst und am rechten Rand beginnt
+    \begin{scope}[on background layer]
+        \fill[hse-dunkelblau] 
+            ([yshift=-0.25\paperheight]current page.north east) rectangle 
+            ([xshift=-14.7cm]current page.north east |- title.south);
+    \end{scope}
+    
+    % Graue Linie am Rand (unverändert)
+    \draw[hse-hellgrau,line width=5mm] 
+        ([xshift=2mm,yshift=-1mm]current page.south west) rectangle 
+        ([xshift=-2mm,yshift=1mm]current page.north east);
+  \end{tikzpicture}
+
+  \vspace*{5cm}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
   \vfill
 
   %%% Informationen in der Mitte
