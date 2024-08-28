@@ -411,6 +411,9 @@ Demonstration der Nutzung einer \texttt{mybox}-Umgebung:
   Kleinstes Element: 2
 \end{mybox}
 
+Sollen einzelne Elemente in dieser Umgebung fett hervorgehoben werden, so nutzt
+man dazu die Anweisung \texttt{\textbackslash highlight\{\}}
+
 \begin{mybox}[Textdatei.txt]{file}
   \highlight{5} 24 13 83 22 4 \highlight{3} 99 23 45 \highlight{4} 82 34 11 9 \highlight{6} 13 22 93 42 85 34
 \end{mybox}
@@ -432,6 +435,26 @@ voraus:
 \end{itemize}
 
 \begin{minted}{c}
+  #include <stdio.h>
+  
+  int main(void) {
+      char string[] = "Fischers Fritze fischt frische Fische, frische Fische fischt Fischers Fritze";
+      char word[] = "Fische";
+  
+      // Die im Folgenden genutzte countWords()-Funktion
+      // müssen Sie erstellen
+      int count = countWords(string, word);
+  
+      printf("Das Wort \"%s\" kam %d-mal im String vor", word, count);
+  }
+\end{minted}
+
+Hier noch ein Beispiel, bei dem die Zeilen 4-5 und 11 mittels der Option
+\texttt{hightlightlines} mit einer Hintergrundfarbe hervorgehoben wurden und die
+Zeilennummern mittels der Option \texttt{linenos} aktiviert wurden.
+
+
+\begin{minted}[linenos,highlightlines={4-5,11}, highlightcolor=hse-blau15]{c}
   #include <stdio.h>
   
   int main(void) {

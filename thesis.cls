@@ -241,6 +241,7 @@
 \definecolor{dunkelgrau}{gray}{0.7}               % Dunkelgrau mit einem Grauwert von 70%
 \definecolor{mittelgrau}{gray}{0.9}               % Mittelgrau mit einem Grauwert von 90%
 \definecolor{hellgrau}{cmyk}{0,0,0,.08}           % Hellgrau (gleiche Werte wie hse-hellgrau)
+\definecolor{codebg}{cmyk}{0,0,0,.04}             % Ganz leichtes Hellgrau für Code-Hintergrund
 \definecolor{dunkelblau}{cmyk}{1,.7,.08,.54}      % Dunkelblau (gleiche Werte wie hse-dunkelblau)
 \definecolor{weiss}{cmyk}{0,0,0,0}                % Weiß
 
@@ -421,8 +422,10 @@
 \usepackage[setspace=false]{scrhack} % für minted-Paket benötigt
 \usepackage{minted}
 
+\setlength{\fboxsep}{0pt}
+
 \setminted[c]{
-    bgcolor=hellgrau,
+    bgcolor=codebg,
     %fontsize=\small,
     breaklines,
     %linenos,
