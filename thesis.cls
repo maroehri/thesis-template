@@ -20,6 +20,12 @@
 %%% Ermöglicht erweiterte Kontrolle und Anpassung von Titel und Titelseite
 \usepackage{titling}
 
+%%% Sollte vor den Schriften geladen werden
+\usepackage{amssymb}  % Für zusätzliche mathematische Symbole wie \bullet und \circ
+\usepackage[all, error]{onlyamsmath}  % Erzwingt die Verwendung von amsmath für
+                                      % mathematische Umgebungen und zeigt Fehler
+                                      % für andere
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Ermöglicht die Verwendung von OpenType-Schriften
 \usepackage{fontspec}
@@ -27,6 +33,7 @@
 %%% Schriftarten auswählen und konfigurieren
 % Hauptschriftart mit Fallback-Optionen
 \IfFontExistsTF{XCharter}{
+  \usepackage{xcharter-otf}
   \setmainfont{XCharter}               % part of TEX Live
 }{
   \IfFontExistsTF{Droid Serif}{
@@ -209,12 +216,6 @@
 \emergencystretch=1em       % Erlaubt etwas mehr Streckung zur Vermeidung von Überfüllungen
 \tolerance=1000             % Erhöht die Toleranz für "schlechte" Zeilenumbrüche
 \hbadness=10000             % Unterdrückt Warnungen für "underfull" Boxen
-
-
-\usepackage{amssymb}  % Für zusätzliche mathematische Symbole wie \bullet und \circ
-\usepackage[all, error]{onlyamsmath}  % Erzwingt die Verwendung von amsmath für
-                                      % mathematische Umgebungen und zeigt Fehler
-                                      % für andere
 
 
 %%% Beschriftungen für Tabellen und Abbildungen: Typ fett, dahinter kursiv
