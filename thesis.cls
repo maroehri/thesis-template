@@ -329,11 +329,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hier wird eine eigene "mybox"-Umgebung definiert
-%%% Das optionale (erste) Argument kann für einen Titel der Box genutzt werden
-%%% Das zweite Argument gibt den Typ an, um ein passendes Symbol zu zeichnen
-%%% file: zeichnet ein Dateisystem
-%%% console: zeichnet ein Konsolensymbol
-% \begin{mybox}[Bildschirmausgabe]{console}
+%%% Das erste (optionale) Argument kann für einen Titel der Box genutzt werden
+%%% Das zweite (optionale) Argument kann für die Schriftgröße genutzt werden
+%%% Das dritte Argument gibt den Typ an, um ein passendes Symbol zu zeichnen:
+%%%   file: zeichnet ein Dateisystem
+%%%   console: zeichnet ein Konsolensymbol
+% \begin{mybox}[Bildschirmausgabe][\small]{console}
 % Kleinstes Element: 2
 % \end{mybox}
 
@@ -346,12 +347,11 @@
 %%% Ermöglicht Verwendung bedingter Anweisungen in LaTeX
 \usepackage{ifthen}
 
-
 %%% Das Kommando \highlight{} kann innerhalb einer mybox verwendet werden,
 %%% um einzelne Teile in Fettschrift zu drucken
 \newcommand\highlight[1]{\textbf{#1}}
 
-\newenvironment{mybox}[2][]{
+\NewDocumentEnvironment{mybox}{O{} O{} m}{
   \VerbatimEnvironment
   \begin{tcolorbox}[
     breakable,          % Seitenumbrüche erlauben
@@ -363,8 +363,8 @@
     boxsep=5pt,         % Abstand zwischen dem Inhalt der Box und ihrem Rahmen
     arc=1pt,            % Radius der Ecken der Box
     fonttitle=\sffamily,
-    toptitle=1mm,       % Abstand vom oberen Rand des Titelbereichs zur Titelzeile
-    bottomtitle=1mm,    % Abstand vom unteren Rand des Titelbereichs zur Titelzeile
+    toptitle=0mm,       % Abstand vom oberen Rand des Titelbereichs zur Titelzeile
+    bottomtitle=0mm,    % Abstand vom unteren Rand des Titelbereichs zur Titelzeile
     left=3pt,           % Abstand des Inhalts der Box vom linken Innenrand der Box
     right=3pt,          % Abstand des Inhalts der Box vom rechten Innenrand der Box
     before upper={\begin{BVerbatim}}, % Fügt BVerbatim am Anfang ein
@@ -372,11 +372,12 @@
     before upper={\DisableQuotes},    % Deaktiviert Guillemets in der Box und berücksichtigt Zeilenumbrüche
     after upper={\EnableQuotes},      % Stellt Guillemets nach der Box wieder her
     title={%
-      \ifstrequal{#2}{file}{\faFileTextO\hspace{5mm}}{%
-        \ifstrequal{#2}{console}{\faTerminal\hspace{5mm}}{}%
+      \ifstrequal{#3}{file}{\faFileTextO\hspace{5mm}}{%
+        \ifstrequal{#3}{console}{\faTerminal\hspace{5mm}}{}%
       }#1
     },
-  ]
+  ]%
+  #2%
   \begin{Verbatim}[commandchars=\\\{\}]%
     }{
   \end{Verbatim}
