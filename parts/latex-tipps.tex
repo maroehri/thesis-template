@@ -1,22 +1,29 @@
-\section*{Textformatierungen in LaTeX}
+\chapter{Tipps zur Nutzung von LaTeX}
+
+Dieses Kapitel ist dazu gedacht, Ihnen einige nützliche Hinweise zur Verwendung
+von \LaTeX\ zu geben, insbesondere, falls Sie zum ersten Mal damit arbeiten.
+
+
+
+\section{Textformatierung}
 
 In \LaTeX\ gibt es verschiedene Befehle zur Textformatierung, die für
 unterschiedliche Zwecke verwendet werden können. Diese Befehle helfen dabei, den
 Text strukturiert und leserfreundlich zu gestalten. Hier sind einige wichtige
 Befehle und ihre Anwendungen:
 
-\subsection*{\texttt{\textbackslash textit\{\}} - Kursivschrift}
+\subsection{\texttt{\textbackslash textit\{\}} - Kursivschrift}
 
 Der Befehl \texttt{\textbackslash textit\{\}} wird verwendet, um Text kursiv
 darzustellen. Kursivschrift eignet sich besonders gut für Hervorhebungen
-innerhalb des Fließtextes, wie z.B. für fremdsprachige Ausdrücke, Titel von
+innerhalb des Fließtextes, wie z.\,B. für fremdsprachige Ausdrücke, Titel von
 Büchern oder betonte Wörter.
 
 \begin{itemize}
     \item Beispiel: \textit{Dies ist ein kursiver Text.}
 \end{itemize}
 
-\subsection*{\texttt{\textbackslash textsf\{\}} - Serifenlose Schrift}
+\subsection{\texttt{\textbackslash textsf\{\}} - Serifenlose Schrift}
 
 Der Befehl \texttt{\textbackslash textsf\{\}} wird verwendet, um Text in
 serifenloser Schrift darzustellen. Diese Schriftart eignet sich besonders gut
@@ -27,18 +34,18 @@ von normalem Fließtext abheben sollen.
     \item Beispiel: \textsf{Dies ist ein Text in serifenloser Schrift.}
 \end{itemize}
 
-\subsection*{\texttt{\textbackslash textbf\{\}} - Fettschrift}
+\subsection{\texttt{\textbackslash textbf\{\}} - Fettschrift}
 
 Der Befehl \texttt{\textbackslash textbf\{\}} wird verwendet, um Text fett
 darzustellen. Fettschrift sollte sparsam verwendet werden und eignet sich
-besonders gut für starke Hervorhebungen, wie z.B. wichtige Begriffe oder
+besonders gut für starke Hervorhebungen, wie z.\,B. wichtige Begriffe oder
 Überschriften.
 
 \begin{itemize}
     \item Beispiel: \textbf{Dies ist ein fetter Text.}
 \end{itemize}
 
-\subsection*{\texttt{\textbackslash texttt\{\}} - Monospace-Schrift}
+\subsection{\texttt{\textbackslash texttt\{\}} - Monospace-Schrift}
 
 Der Befehl \texttt{\textbackslash texttt\{\}} wird verwendet, um Text in einer
 Monospace-Schrift (Schreibmaschinenschrift) darzustellen. Diese Schriftart
@@ -51,7 +58,61 @@ technische Begriffe.
 
 
 
-\section*{Aufzählungen}
+\section{Leerzeilen und Absätze in LaTeX}
+
+In \LaTeX\ werden Absätze automatisch durch das Setzen einer \textit{Leerzeile}
+im Quelltext erzeugt. Dies ist die empfohlene Methode, um den Text klar in
+Abschnitte zu gliedern und die Lesbarkeit zu verbessern. Ein einzelner
+Zeilenumbruch (durch Drücken der Enter-Taste) hat hingegen keine Auswirkungen
+auf das endgültige Layout des Dokuments. \LaTeX\ ignoriert solche Umbrüche und
+setzt den Text fort, als ob keine neue Zeile begonnen worden wäre.
+
+Es ist wichtig, auf die manuelle Verwendung von \mintinline{text}{\\} zu
+verzichten, um Zeilenumbrüche zu erzwingen. Dieser Befehl ist in der Regel nur
+für spezielle Fälle gedacht, wie in Gedichten oder Adressen, und sollte nicht
+für die Gestaltung normaler Absätze verwendet werden. Der Einsatz von
+\mintinline{text}{\\} zur Strukturierung des Fließtextes kann zu
+unvorhersehbarem Layout führen und widerspricht der semantischen Textgliederung,
+die \LaTeX\ von Haus aus unterstützt.
+
+Stattdessen sollten Absätze durch den logischen Einsatz von Leerzeilen im
+Quelltext strukturiert werden, wodurch \LaTeX\ automatisch die passende
+Formatierung und den korrekten Abstand zwischen den Absätzen sicherstellt.
+
+
+\section{Typografie und Formatierung in LaTeX}
+
+In \LaTeX\ können Abkürzungen wie "z.\,B." oder "d.\,h." korrekt formatiert
+werden, indem ein kleiner Abstand zwischen den Bestandteilen eingefügt wird.
+Dies erreicht man, indem zwischen den Buchstaben ein sogenannter
+\textit{geschützter dünner Leerraum} (\mintinline{text}{\,}) verwendet wird.
+Beispielsweise wird "\mintinline{text}{z.\,B.}" anstelle von
+"\mintinline{text}{z. B.}" geschrieben. Dies sorgt dafür, dass der Abstand
+optisch angenehmer wirkt und den typografischen Standards entspricht.
+
+In \LaTeX\ wird das Tilde-Symbol (\mintinline{text}{~}) verwendet, um zwischen
+zwei Wörtern oder Zeichen einen \textit{geschützten Leerraum} einzufügen, der
+verhindert, dass ein Zeilenumbruch an dieser Stelle erfolgt. Dies ist nützlich
+bei Abkürzungen oder bei Wörtern, die zusammenbleiben sollen, wie bei
+"\mintinline{text}{S.~42}" für Seitenangaben oder
+"\mintinline{text}{Prof.~Dr.}". Der geschützte Leerraum hat die gleiche Breite
+wie ein normaler Leerraum, stellt jedoch sicher, dass beide Begriffe stets in
+der gleichen Zeile bleiben.
+
+In \LaTeX\ gibt es verschiedene Minuszeichen für unterschiedliche Verwendungszwecke:
+
+\begin{itemize}
+  \item Der einfache Bindestrich \mintinline{text}{-} wird für die Trennung von
+  Wörtern verwendet, wie in "Auto-Industrie".
+  \item Der Geviertstrich \mintinline{text}{--} dient als Gedankenstrich oder
+  zur Trennung von Zahlenbereichen, z.\,B. "Seiten 10--20" oder "Heute -- nicht
+  morgen."
+  \item Der lange Strich \mintinline{text}{---} wird für längere Gedankenstriche
+  in formellen Texten oder als Ersatz für Doppelpunkte verwendet.
+\end{itemize}
+
+
+\section{Aufzählungen}
 
 Aufzählungen sind eine häufig genutzte Methode, um Listen von Elementen
 strukturiert darzustellen. In \LaTeX\ gibt es mehrere Möglichkeiten,
@@ -59,7 +120,7 @@ Aufzählungen zu erstellen. Zwei der häufigsten Methoden sind nummerierte
 Aufzählungen mit \texttt{enumerate} und nicht nummerierte Aufzählungen mit
 \texttt{itemize}.
 
-\subsection*{Nummerierte Aufzählungen}
+\section{Nummerierte Aufzählungen}
 
 Nummerierte Aufzählungen verwenden Zahlen oder Buchstaben, um die Reihenfolge
 der Elemente anzuzeigen. Dies ist besonders nützlich, wenn die Reihenfolge der
@@ -79,7 +140,7 @@ Elemente wichtig ist oder wenn Sie auf bestimmte Punkte verweisen möchten.
   \item Dritter Punkt der Aufzählung.
 \end{enumerate}
 
-\subsection*{Nicht nummerierte Aufzählungen}
+\section{Nicht nummerierte Aufzählungen}
 
 Nicht nummerierte Aufzählungen verwenden Symbole wie Punkte oder Striche, um die
 Elemente der Liste zu kennzeichnen. Dies ist nützlich, wenn die Reihenfolge der
@@ -100,7 +161,7 @@ Elemente keine Rolle spielt.
 \end{itemize}
 
 
-\section*{Literaturangaben}
+\section{Literaturangaben}
 
 In der Datei \texttt{thesis.bib} befinden sich die Literaturangaben, die im
 folgenden genutzt werden:
@@ -135,7 +196,7 @@ gesellschaftliche und bildungspolitische Aspekte beleuchtet:
 
 
 
-\section*{Nutzung von Farben}
+\section{Nutzung von Farben}
 
 In \LaTeX\ können Farben verwendet werden, um Text, Tabellen und andere Elemente
 hervorzuheben und das Dokument ansprechender zu gestalten. Hierfür ist in
@@ -198,7 +259,7 @@ Textes in der angegebenen Farbe.
 
 
 
-\section*{Einbinden von Grafiken}
+\section{Einbinden von Grafiken}
 
 Grafiken können wie folgt eingebunden werden, hier zu sehen am Beispiel der
 Abbildung~\ref{fig:example}:
@@ -247,7 +308,7 @@ Abbildung~\ref{fig:combined}) und separaten Unterüberschriften für jedes Bild
 
 
 
-\section*{Tabellen}
+\section{Tabellen}
 
 Tabellen in \LaTeX\ waren und sind teilweise immer noch schwieriger zu
 gestalten, als in anderen Programmen. Es gibt mittlerweile ein Paket
@@ -278,7 +339,7 @@ Nr. & Aussage & Wahr & Falsch\\ \midrule
 \end{tblr}
 \end{table}
 
-\subsection*{Beispiel für zwei nebeneinander stehende Tabellen}
+\section{Beispiel für zwei nebeneinander stehende Tabellen}
 
 Falls Sie zwei Tabellen nebeneinander platzieren wollen, können Sie wie bei den
 Abbildungen zwei \texttt{minipage}s anlegen.
@@ -322,21 +383,21 @@ Abbildungen zwei \texttt{minipage}s anlegen.
 
 
 
-\section*{Verwendung von Mathematik in \LaTeX}
+\section{Verwendung von Mathematik in \LaTeX}
 
-\LaTeX{} ist ein leistungsfähiges Textsatzsystem, das sich besonders gut für das
+\LaTeX\ ist ein leistungsfähiges Textsatzsystem, das sich besonders gut für das
 Schreiben von wissenschaftlichen Arbeiten eignet. Ein wesentliches Merkmal von
-\LaTeX{} ist seine Fähigkeit, komplexe mathematische Ausdrücke sauber und
+\LaTeX\ ist seine Fähigkeit, komplexe mathematische Ausdrücke sauber und
 präzise zu setzen. In diesem Abschnitt wird die Verwendung von Mathematik in
-\LaTeX{} kurz erläutert.
+\LaTeX\ kurz erläutert.
 
-\subsection*{Inline-Mathematik}
+\section{Inline-Mathematik}
 
 Mathematische Ausdrücke können innerhalb eines Textes eingefügt werden, indem
 man sie zwischen Dollarzeichen setzt. Zum Beispiel wird die Quadratformel wie
 folgt geschrieben: \( ax^2 + bx + c = 0 \).
 
-\subsection*{Abgesetzte Mathematik}
+\section{Abgesetzte Mathematik}
 
 Für größere oder wichtigere Ausdrücke verwendet man abgesetzte Mathematik. Diese
 Ausdrücke werden zentriert und auf einer eigenen Zeile dargestellt. Man
@@ -352,7 +413,7 @@ oder die \texttt{equation}-Umgebung, die auch eine Gleichungsnummer hinzufügt:
 e^{i\pi} + 1 = 0
 \end{equation}
 
-\subsection*{Mehrere Gleichungen mit \texttt{align}}
+\section{Mehrere Gleichungen mit \texttt{align}}
 
 Die \texttt{align}-Umgebung ist besonders nützlich, um mehrere Gleichungen
 auszurichten. Jede Gleichung wird durch ein \texttt{\&}-Zeichen ausgerichtet und
@@ -366,9 +427,9 @@ x_1 + y_1 &= z_1 \\
 2x_2 + 3y_2 &= 5z_2
 \end{align}
 
-\section*{Mathematische Symbole und Operatoren}
+\section{Mathematische Symbole und Operatoren}
 
-\LaTeX{} bietet eine breite Palette von mathematischen Symbolen und Operatoren.
+\LaTeX\ bietet eine breite Palette von mathematischen Symbolen und Operatoren.
 Einige häufig verwendete Symbole sind:
 
 \begin{itemize}
@@ -378,7 +439,7 @@ Einige häufig verwendete Symbole sind:
     \item Wurzeln: \(\sqrt{x}\) und \(\sqrt[3]{x}\)
 \end{itemize}
 
-\subsection*{Griechische Buchstaben}
+\section{Griechische Buchstaben}
 
 Griechische Buchstaben werden häufig in mathematischen Ausdrücken verwendet.
 Hier sind einige Beispiele:
@@ -389,9 +450,9 @@ Hier sind einige Beispiele:
     \Psi, \Omega\)
 \end{itemize}
 
-\subsection*{Vektoren und Matrizen}
+\section{Vektoren und Matrizen}
 
-Vektoren und Matrizen können ebenfalls in \LaTeX{} dargestellt werden:
+Vektoren und Matrizen können ebenfalls in \LaTeX\ dargestellt werden:
 
 \begin{itemize}
     \item Vektoren: \(\vec{v}\) oder \(\mathbf{v}\)
@@ -406,12 +467,25 @@ Vektoren und Matrizen können ebenfalls in \LaTeX{} dargestellt werden:
 
 
 
-\section*{Die mybox-Umgebung}
+\section{Die mybox-Umgebung}
 
-Demonstration der Nutzung einer \texttt{mybox}-Umgebung:
+Die \texttt{mybox}-Umgebung ist eine Eigenkreation, die es erlaubt, Text in
+Festbreitenschrift innerhalb einer formatierten Box auszugeben. Die Box kann vom
+Typ \texttt{console} für eine Konsolen-/Terminalausgabe oder vom Typ
+\texttt{file} für den Inhalt einer Datei sein. Man kann über die Umgebungs-Option
+\texttt{title} optional der Box auch noch einen Titel hinzufügen.
 
 \begin{mybox}[Bildschirmausgabe]{console}
   Kleinstes Element: 2
+\end{mybox}
+
+Sie können nebem dem Titel auch die Schrift über einen optionale Option
+\texttt{font} beeinflussen, z.\,B. wie im folgenden:
+
+\mintinline{text}{\begin{mybox}[title=Bildschirmausgabe, font=\small]{console}}
+
+\begin{mybox}[title=Bildschirmausgabe, font=\small]{console}
+Hier dann der Text in kleinerer Festbreitenschrift
 \end{mybox}
 
 Sollen einzelne Elemente in dieser Umgebung fett hervorgehoben werden, so nutzt
@@ -421,8 +495,42 @@ man dazu die Anweisung \texttt{\textbackslash highlight\{\}}
   \highlight{5} 24 13 83 22 4 \highlight{3} 99 23 45 \highlight{4} 82 34 11 9 \highlight{6} 13 22 93 42 85 34
 \end{mybox}
 
+Es gibt außerdem die Möglichkeit, einzelne Abschnitte rot oder grün zu
+hinterlegen mit den Kommandos \mintinline{text}{\highlightred{}} bzw.
+\mintinline{text}{\highlightgreen{}} wie in folgendem Beispiel dargestellt:
 
-\section*{Source Code}
+\begin{mybox}[title=semester.md, font=\small]{file}
+[...]
+
+### Software-Technik
+
+- \highlightgreen{Allgemeine }Einführung
+- \highlightgreen{Übersicht }Vorgehensmodelle
+- Agile Softwareentwicklung
+\highlightred{- Requirements Engineering} 
+\highlightgreen{- Business Analysis} 
+\end{mybox}
+
+
+
+\section{Die awesomebox-Umgebung}
+
+Demonstration der Nutzung einer \texttt{awesomebox}-Umgebung:
+
+\begin{awesomeblock}[hse-hellblau]{2pt}{\faInfo}{hse-hellblau}
+\small\textit{Wichtiger Hinweis}: beachten Sie die Option "Initialize repository with
+a README". Diese Option sollte nur angewählt werden, wenn Sie ein neues
+Repository durch GitLab/GitHub anlegen lassen wollen. Sofern Sie bereits ein
+lokales Repository haben, dass Sie nach GitLab/GitHub pushen wollen, sollten Sie
+die Option \textit{nicht} wählen (sonst müssten Sie später mit 
+
+\texttt{git merge origin/main --allow-unrelated-histories}
+
+die beiden Historien vereinen)
+\end{awesomeblock}
+
+
+\section{Source Code}
 
 Falls mit Quelltext und Syntax-Highlighting gearbeitet werden soll, empfehle ich
 die Verwendung des \texttt{minted}-Pakets. Dieses setzt allerdings folgendes
@@ -474,7 +582,7 @@ Zeilennummern mittels der Option \texttt{linenos} aktiviert wurden.
 
 
 
-\section*{ToDo-Notizen}
+\section{ToDo-Notizen}
 
 Das \texttt{todonotes}-Paket bietet eine einfache Möglichkeit, Aufgaben und
 Notizen in \LaTeX\-Dokumenten zu verwalten. Es erlaubt Ihnen, ToDo-Notizen

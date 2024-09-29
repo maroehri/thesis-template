@@ -246,6 +246,10 @@
 \definecolor{dunkelblau}{cmyk}{1,.7,.08,.54}      % Dunkelblau (gleiche Werte wie hse-dunkelblau)
 \definecolor{weiss}{cmyk}{0,0,0,0}                % Weiß
 
+% Definition von Farben für das Hinterlegen
+\definecolor{hellrot}{HTML}{ffc7ce}
+\definecolor{hellgruen}{HTML}{c6efce}
+
 
 %%% Ändert die Nummerierung der Aufzählungselemente im ersten Level
 %%% von nummerischen (1, 2, 3, ...) zu alphabetischen (a, b, c, ...)
@@ -330,30 +334,40 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hier wird eine eigene "mybox"-Umgebung definiert
-%%% Das erste (optionale) Argument kann für einen Titel der Box genutzt werden
-%%% Das zweite (optionale) Argument kann für die Schriftgröße genutzt werden
-%%% Das dritte Argument gibt den Typ an, um ein passendes Symbol zu zeichnen:
+%%% Optionale Argument:
+%%%   title=<Beliebiger Titel>
+%%%   font=<Beliebige Schriftformatierungen>
+%%% Ein verpflichtendes Argument gibt den Typ an, um ein passendes Symbol zu
+%%% zeichnen:
 %%%   file: zeichnet ein Dateisystem
 %%%   console: zeichnet ein Konsolensymbol
-% \begin{mybox}[Bildschirmausgabe][\small]{console}
+% \begin{mybox}[title=Bildschirmausgabe, font=\small]{console}
 % Kleinstes Element: 2
 % \end{mybox}
 
-\usepackage{fontawesome}  % Für die Verwendung von Symbolen
-\usepackage{etoolbox}     % Für erweiterte Makroprogrammierung, z.B. \ifstrequal
+\usepackage{fontawesome5} % Für die Verwendung von Symbolen
 \usepackage{fancyvrb}     % Für erweiterte Verbatim-Umgebung
 \usepackage{tcolorbox}    % Für die Erstellung farbiger Boxen
-\tcbuselibrary{breakable} % Ermöglicht Fortsetzen von Inhalten in tcolorbox-Umgebungen über Seitenumbrüche hinweg
-
-%%% Ermöglicht Verwendung bedingter Anweisungen in LaTeX
-\usepackage{ifthen}
+\tcbuselibrary{breakable} % Seitenumbrüche in tcolorbox-Umgebungen
 
 %%% Das Kommando \highlight{} kann innerhalb einer mybox verwendet werden,
 %%% um einzelne Teile in Fettschrift zu drucken
 \newcommand\highlight[1]{\textbf{#1}}
 
-\NewDocumentEnvironment{mybox}{O{} O{} m}{
+% Neue Befehle für farbig hinterlegten Text
+\newcommand{\highlightred}[1]{\colorbox{hellrot}{#1}}
+\newcommand{\highlightgreen}[1]{\colorbox{hellgruen}{#1}}
+
+\usepackage{expkv-def}
+\ekvdefinekeys{mybox}
+{
+   store title = \myboxTitle
+  ,store font = \myboxFont
+}
+
+\NewDocumentEnvironment{mybox}{={title}O{} m}{
   \VerbatimEnvironment
+  \ekvset{mybox}{#1}%
   \begin{tcolorbox}[
     breakable,          % Seitenumbrüche erlauben
     colback=hellgrau,
@@ -373,19 +387,22 @@
     before upper={\DisableQuotes},    % Deaktiviert Guillemets in der Box und berücksichtigt Zeilenumbrüche
     after upper={\EnableQuotes},      % Stellt Guillemets nach der Box wieder her
     title={%
-      \ifstrequal{#3}{file}{\faFileTextO\hspace{5mm}}{%
-        \ifstrequal{#3}{console}{\faTerminal\hspace{5mm}}{}%
-      }#1
+      \ifstrequal{#2}{file}{\faFile*[regular]\hspace{5mm}}{%
+        \ifstrequal{#2}{console}{\faTerminal\hspace{5mm}}{}%
+      }\myboxTitle
     },
   ]%
-  #2%
+  \myboxFont
   \begin{Verbatim}[commandchars=\\\{\}]%
-    }{
+    }{%
   \end{Verbatim}
   \end{tcolorbox}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%% Das awesomebox-Paket bietet sehr schöne Templates für Hinweis-Boxen
+\usepackage{awesomebox}
 
 
 \usepackage[
