@@ -331,6 +331,20 @@
 %\usepackage[toc]{glossaries}
 %\makeglossaries
 
+%%% Für die Boxen unten:
+\usepackage{fontawesome5} % Für die Verwendung von Symbolen
+\usepackage{fancyvrb}     % Für erweiterte Verbatim-Umgebung
+\usepackage[most,minted]{tcolorbox}    % Für die Erstellung farbiger Boxen
+\tcbuselibrary{breakable} % Seitenumbrüche in tcolorbox-Umgebungen
+\usepackage{expkv-def}
+
+%%% Das Kommando \highlight{} kann innerhalb einer mybox verwendet werden,
+%%% um einzelne Teile in Fettschrift zu drucken
+\newcommand\highlight[1]{\textbf{#1}}
+
+% Neue Befehle für farbig hinterlegten Text
+\newcommand{\highlightred}[1]{\colorbox{hellrot}{#1}}
+\newcommand{\highlightgreen}[1]{\colorbox{hellgruen}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hier wird eine eigene "mybox"-Umgebung definiert
@@ -344,19 +358,6 @@
 % \begin{mybox}[title=Bildschirmausgabe, font=\small]{console}
 % Kleinstes Element: 2
 % \end{mybox}
-
-\usepackage{fontawesome5} % Für die Verwendung von Symbolen
-\usepackage{fancyvrb}     % Für erweiterte Verbatim-Umgebung
-\usepackage{tcolorbox}    % Für die Erstellung farbiger Boxen
-\tcbuselibrary{breakable} % Seitenumbrüche in tcolorbox-Umgebungen
-
-%%% Das Kommando \highlight{} kann innerhalb einer mybox verwendet werden,
-%%% um einzelne Teile in Fettschrift zu drucken
-\newcommand\highlight[1]{\textbf{#1}}
-
-% Neue Befehle für farbig hinterlegten Text
-\newcommand{\highlightred}[1]{\colorbox{hellrot}{#1}}
-\newcommand{\highlightgreen}[1]{\colorbox{hellgruen}{#1}}
 
 \usepackage{expkv-def}
 \ekvdefinekeys{mybox}
@@ -397,6 +398,68 @@
     }{%
   \end{Verbatim}
   \end{tcolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hier wird eine eigene "codebox"-Umgebung definiert
+%%% Optionale Argument:
+%%%   title=<Beliebiger Titel>
+%%%   fontsize=<Angabe der Schriftgröße>
+%%%   lang=<Sprache für Syntax-Highlighting>
+%%% Ein verpflichtendes Argument gibt den Typ an, um ein passendes Symbol zu
+%%% zeichnen:
+%%%   file: zeichnet ein Dateisystem
+%%%   console: zeichnet ein Konsolensymbol
+%%%   book: zeichnet ein Symbol eines geöffneten Buchs
+%%%   infi: zeichnet ein Symbol eines Info-i
+%%% Beispiel:
+% \begin{codebox}[title=include/adjustSpeed.hpp, lang=cpp, font=\small]{file}
+% #pragma once
+% #include <string>
+
+% std::string adjustSpeed(double currentSpeed,
+%                         double frontVehicleSpeed,
+%                         double distance);
+% \end{codebox}
+
+\ekvdefinekeys{codebox}
+{
+   store title = \mycodeboxTitle
+  ,store font = \mycodeboxFont
+  ,store lang = \mycodeboxLang
+  ,initial lang = cpp
+}
+
+\newtcblisting{codebox}[2][]{%
+    breakable,
+    colback=hellgrau,
+    coltitle=weiss,
+    colbacktitle=dunkelgrau,
+    colframe=dunkelgrau,
+    boxrule=0.9pt,
+    boxsep=5pt,
+    arc=1pt,
+    fonttitle=\sffamily,
+    toptitle=0mm,
+    bottomtitle=0mm,
+    left=3pt,
+    right=3pt,
+    listing only,
+    code={\ekvset{codebox}{#1}},
+    title={
+      \ifstrequal{#2}{file}{\faFile*[regular]\hspace{5mm}}{%
+        \ifstrequal{#2}{console}{\faTerminal\hspace{5mm}}{%
+          \ifstrequal{#2}{info}{\faInfo\hspace{5mm}}{%
+            \ifstrequal{#2}{book}{\faBookOpen\hspace{5mm}}{}%
+          }
+        }
+      }\mycodeboxTitle
+    },
+    minted options app={
+        fontsize=\mycodeboxFont
+    },
+    minted language=\mycodeboxLang,
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

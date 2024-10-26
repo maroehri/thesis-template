@@ -580,6 +580,28 @@ Zeilennummern mittels der Option \texttt{linenos} aktiviert wurden.
   }
 \end{minted}
 
+Für Quelltext in einer Box können Sie auch die \texttt{codebox}-Umgebung
+verwenden, die das Template mitbringt, z.\,B. wie im
+folgenden\footnote{Anmerkung: die Umsetzung erfordert mindestens das
+\texttt{minted}-Paket in Version 3.0}:
+
+\begin{minted}{latex}
+\begin{codebox}[
+    title=include/adjustSpeed.hpp,
+    lang=cpp,
+    fontsize=\small
+]{file}
+\end{minted}
+
+\begin{codebox}[title=include/adjustSpeed.hpp, lang=cpp, font=\small]{file}
+#pragma once
+#include <string>
+
+std::string adjustSpeed(double currentSpeed,
+                        double frontVehicleSpeed,
+                        double distance);
+\end{codebox}
+
 
 
 \section{ToDo-Notizen}
