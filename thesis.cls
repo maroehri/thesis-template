@@ -30,6 +30,10 @@
 %%% Ermöglicht die Verwendung von OpenType-Schriften
 \usepackage{fontspec}
 
+%%% Eigenes smallish-Kommando für eine Schrifgröße zwischen small und footnotesize
+%%% Annahme: die Dokumentenklasse wurde mit 12pt geladen
+\newcommand{\smallish}{\fontsize{10.5pt}{12pt}\selectfont}
+
 %%% Schriftarten auswählen und konfigurieren
 % Hauptschriftart mit Fallback-Optionen
 \IfFontExistsTF{XCharter}{
@@ -464,6 +468,74 @@
         highlightlines={\mycodeboxLines}, highlightcolor=hse-blau15
     },
     minted language=\mycodeboxLang,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hier wird ein Mac OS X-Terminal erzeugt
+%%% Optionale Argument:
+%%%   title=<Beliebiger Titel>
+%%%       Voreingestellter Standard: "Terminal"
+%%%   font=<Angabe der Schriftgröße>
+%%%   lang=<Sprache für Syntax-Highlighting>
+%%%       Voreingestellter Standard: "text"
+%%%   lines=<Zeilennummern, die hellblau hinterlegt sein sollen>
+%%%
+%%% Beispiel:
+% \begin{terminal}[font=\small, lines={3}]
+% g++ -std=c++17 -I include -c src/main.cpp -o build/main.o
+% g++ -std=c++17 -I include -c lib/mylib.cpp -o build/mylib.o
+% g++ -std=c++17 -I include build/main.o  build/mylib.o -o build/main
+% ./build/main
+% \end{terminal}
+%%%
+%%% Zusätzliche Farbdefinitionen:
+\definecolor{terminalFrameColor}{HTML}{c0c0c0}
+\definecolor{terminalBgColor}{HTML}{fffffe}
+\definecolor{terminalTitleColor}{HTML}{484848}
+\definecolor{terminalBgTitleColor}{HTML}{f3f3f3}
+\definecolor{Button1}{RGB}{254,94,86}
+\definecolor{Button2}{RGB}{254,188,45}
+\definecolor{Button3}{RGB}{38,202,59}
+
+\ekvdefinekeys{terminal}
+{
+  store title = \terminalTitle,
+  store font = \terminalFont,
+  store lines = \terminalLines,
+  store lang = \terminalLang,
+  initial lang = text,
+  initial title = Terminal
+}
+
+\newtcblisting{terminal}[1][]{%
+  breakable,
+  colframe=terminalFrameColor,
+  colback=terminalBgColor,
+  coltitle=terminalTitleColor,
+  colbacktitle=terminalBgTitleColor,
+  boxrule=0.2pt,
+  boxsep=5pt,
+  arc=8pt,
+  fonttitle=\bfseries\sffamily,
+  toptitle=0mm,
+  bottomtitle=0mm,
+  left=3pt,
+  right=3pt,
+  listing only,
+  code={\ekvset{terminal}{#1}},
+  title={\tikz {
+    \node[circle,fill=Button1,inner sep=3pt] (c) at (0,0){};
+    \node[circle,fill=Button2,inner sep=3pt] (c) at (0.5,0){};
+    \node[circle,fill=Button3,inner sep=3pt] (c) at (1,0){};
+  } ~~~\terminalTitle},
+  minted options app/.expanded={
+    fontsize=\noexpand\terminalFont,
+    escapeinside=||,
+    highlightlines={\terminalLines},
+    highlightcolor=hse-blau15
+  },
+  minted language=\terminalLang,
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

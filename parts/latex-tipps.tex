@@ -530,6 +530,28 @@ die beiden Historien vereinen)
 \end{awesomeblock}
 
 
+
+
+\section{Ein macOS-Terminal}
+
+Mit der Umgebung \texttt{terminal} können Sie ein macOS-ähnliches Terminal
+anzeigen, in dem mittels der \texttt{minted}-Umgebung Zeilen automatisch
+umbrochen werden:
+
+\begin{minted}{latex}
+\begin{terminal}[font=\smallish]
+\end{terminal}
+\end{minted}
+
+\begin{terminal}[font=\smallish]
+% |\highlight{make execute}|
+./build/mainDebug
+Esslingen University:
+Temperature: 4.2 °C
+Wind Speed: 5.8 km/h
+The weather is not ideal for outdoor activities.
+\end{terminal}
+
 \section{Source Code}
 
 Falls mit Quelltext und Syntax-Highlighting gearbeitet werden soll, empfehle ich
@@ -589,12 +611,12 @@ folgenden\footnote{Anmerkung: die Umsetzung erfordert mindestens das
 \begin{codebox}[
     title=include/adjustSpeed.hpp,
     lang=cpp,
-    fontsize=\small,
+    font=\small,
     lines={2,4}
 ]{file}
 \end{minted}
 
-\begin{codebox}[title=include/adjustSpeed.hpp, lang=cpp, font=\small, lines={2,4}]{file}
+\begin{codebox}[title=\texttt{include/adjustSpeed.hpp}, lang=cpp, font=\small, lines={2,4}]{file}
 #pragma once
 #include <string>
 
