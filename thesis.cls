@@ -405,8 +405,9 @@
 %%% Hier wird eine eigene "codebox"-Umgebung definiert
 %%% Optionale Argument:
 %%%   title=<Beliebiger Titel>
-%%%   fontsize=<Angabe der Schriftgröße>
+%%%   font=<Angabe der Schriftgröße>
 %%%   lang=<Sprache für Syntax-Highlighting>
+%%%   lines=<Zeilennummern, die hellblau hinterlegt sein sollen>
 %%% Ein verpflichtendes Argument gibt den Typ an, um ein passendes Symbol zu
 %%% zeichnen:
 %%%   file: zeichnet ein Dateisystem
@@ -414,7 +415,7 @@
 %%%   book: zeichnet ein Symbol eines geöffneten Buchs
 %%%   infi: zeichnet ein Symbol eines Info-i
 %%% Beispiel:
-% \begin{codebox}[title=include/adjustSpeed.hpp, lang=cpp, font=\small]{file}
+% \begin{codebox}[title=include/adjustSpeed.hpp, lang=cpp, font=\small, lines={1,5}]{file}
 % #pragma once
 % #include <string>
 
@@ -425,10 +426,11 @@
 
 \ekvdefinekeys{codebox}
 {
-   store title = \mycodeboxTitle
-  ,store font = \mycodeboxFont
-  ,store lang = \mycodeboxLang
-  ,initial lang = cpp
+  store title = \mycodeboxTitle,
+  store font = \mycodeboxFont,
+  store lines = \mycodeboxLines,
+  store lang = \mycodeboxLang,
+  initial lang = cpp
 }
 
 \newtcblisting{codebox}[2][]{%
@@ -456,8 +458,10 @@
         }
       }\mycodeboxTitle
     },
-    minted options app={
-        fontsize=\mycodeboxFont
+    minted options app/.expanded={
+        fontsize=\noexpand\mycodeboxFont,
+        escapeinside=||,
+        highlightlines={\mycodeboxLines}, highlightcolor=hse-blau15
     },
     minted language=\mycodeboxLang,
 }
